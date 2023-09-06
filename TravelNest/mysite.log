@@ -1,0 +1,16 @@
+[06/Sep/2023 16:06:01] ERROR [django.request:241] Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/millie/TravelNest_Django/TravelNest/accounts/views.py", line 5, in home
+    return render(request, "/accounts/index.html")
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: /accounts/index.html
+[06/Sep/2023 16:06:01] ERROR [django.server:212] "GET /accounts/ HTTP/1.1" 500 74123
