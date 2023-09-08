@@ -14,3 +14,126 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: /accounts/index.html
 [06/Sep/2023 16:06:01] ERROR [django.server:212] "GET /accounts/ HTTP/1.1" 500 74123
+[08/Sep/2023 14:12:56] ERROR [django.request:241] Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: "'assets/img/gallery/gallery-9.jpg'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/millie/TravelNest_Django/TravelNest/accounts/views.py", line 5, in home
+    return render(request, "accounts/index.html")
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 188: ''assets/img/gallery/gallery-9.jpg''. Did you forget to register or load this tag?
+[08/Sep/2023 14:12:56] ERROR [django.server:212] "GET /accounts/ HTTP/1.1" 500 170439
+[08/Sep/2023 14:14:18] ERROR [django.request:241] Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/millie/TravelNest_Django/TravelNest/accounts/views.py", line 5, in home
+    return render(request, "accounts/index.html")
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 231: 'status'. Did you forget to register or load this tag?
+[08/Sep/2023 14:14:18] ERROR [django.server:212] "GET /accounts/ HTTP/1.1" 500 166821
+[08/Sep/2023 14:14:21] ERROR [django.request:241] Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/millie/TravelNest_Django/TravelNest/accounts/views.py", line 5, in home
+    return render(request, "accounts/index.html")
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/template/base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 231: 'status'. Did you forget to register or load this tag?
+[08/Sep/2023 14:14:21] ERROR [django.server:212] "GET /accounts/ HTTP/1.1" 500 166821
