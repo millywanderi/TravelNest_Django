@@ -5,12 +5,15 @@ class Airport(models.Model):
     name = models.CharField(max_length=50)
     airportCode = models.CharField(max_length=50)
 
+    def __str__(self):
+        return f"{self.name}, {self.airportCode}"
+
 
 class BaseModel(models.Model):
-    destination = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="flight_destination")
+    duration = models.IntegerField()
     arrivalTime = models.DateTimeField(auto_now_add=True)
     departureTime = models.DateTimeField(auto_now_add=True)
-    pointOfDeparture = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="flight_time")
+    price = models.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta:
         abstract=True # no class willl be created
@@ -23,22 +26,23 @@ FLIGHT_STATUS =[
 ]
 
 
-class Flight(BaseModel):
-    CANCELLED = "Cancelled",
-    DELAYED = "Delayed",
-    ON_TIME = "On Time"
 
-    FLIGHT_STATUS =[
-        (CANCELLED, "Cancelled"),
-        (DELAYED, "Delayed"),
-        (ON_TIME, "On Time")
-    ]
-    duration = models.IntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=2, default=ON_TIME)
+class Flight(BaseModel):
+    destination = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="flight_destination")
+    status = models.CharField(blank=True, null=True, max_length=9, choices=FLIGHT_STATUS)
+    pointOfDeparture = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="flight_time")
 
     class Meta:
         ordering = ("pointOfDeparture", "arrivalTime", "departureTime", "destination",)
 
     def __str__(self):
         return f"{self.pointOfDeparture}, {self.destination}, {self.arrivalTime}"
+    
+class Train(BaseModel):
+    destination = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="train_destination")
+    status = models.CharField(blank=True, null=True, max_length=9, choices=FLIGHT_STATUS)
+    pointOfDeparture = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="train_time")
+
+
+    def __str__(self):
+        return f"{self.pointOfDeparture}, {self.destination}"

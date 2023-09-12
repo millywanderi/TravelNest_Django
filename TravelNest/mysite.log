@@ -137,3 +137,13 @@ Traceback (most recent call last):
     raise self.error(
 django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 231: 'status'. Did you forget to register or load this tag?
 [08/Sep/2023 14:14:21] ERROR [django.server:212] "GET /accounts/ HTTP/1.1" 500 166821
+[12/Sep/2023 15:53:37] ERROR [django.request:241] Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/millie/TravelNest_Django/milly/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/millie/TravelNest_Django/TravelNest/accounts/views.py", line 10, in home
+    "flights": flights,
+NameError: name 'flights' is not defined
+[12/Sep/2023 15:53:37] ERROR [django.server:212] "GET / HTTP/1.1" 500 61745
