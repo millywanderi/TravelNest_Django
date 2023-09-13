@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User, auth
 # Create your models here.
 class Airport(models.Model):
     name = models.CharField(max_length=50)
@@ -14,6 +14,7 @@ class BaseModel(models.Model):
     arrivalTime = models.DateTimeField(auto_now_add=True)
     departureTime = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    passenger = models.ManyToManyField(User, on_delete=models.CASCADE)
 
     class Meta:
         abstract=True # no class willl be created
