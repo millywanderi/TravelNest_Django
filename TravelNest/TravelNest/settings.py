@@ -17,6 +17,7 @@ import logging
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -26,6 +27,7 @@ SECRET_KEY = 'django-insecure-0m0*1wh_%c283$xar*rmi@mt51gu5g7aqw^6gtzb83=q16t@rb
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -40,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    #'crispy_forms',
+    #'crispy-bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +72,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            #"builtins": [
+              #  "crispy_forms.templatetags.crispy_forms_tags",
+            #],
         },
     },
 ]
